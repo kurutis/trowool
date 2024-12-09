@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Root } from "./routes/Root/Root";
 import { About, loader as aboutloader} from './routes/About/About'
-import { Feedbacks, loader as feedbacksloader } from "./routes/Feedbacks/Feedbacks";
+import { Reviews, loader as reviewsloader } from "./routes/Reviews/Reviews";
 
 
 let router = createBrowserRouter([
@@ -15,9 +15,9 @@ let router = createBrowserRouter([
         loader: aboutloader
       },
       {
-        path: 'Feedbacks',
-        element: <Feedbacks />,
-        loader: feedbacksloader
+        path: 'Reviews',
+        element: <Reviews />,
+        loader: reviewsloader
       }
     ]
   },

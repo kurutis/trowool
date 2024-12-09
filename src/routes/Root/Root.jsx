@@ -80,7 +80,7 @@ export const Root = () =>{
                     <ul ref={targetRef} className={s.navigation}>
                         <NavLink className={({isActive, isPending}) => isActive ? s.active : isPending ? s.loading: s.btnNav} to={'About'}><li>О магазине</li></NavLink>
                         <NavLink className={({isActive, isPending}) => isActive ? s.active : isPending ? s.loading: s.btnNav} to={'Shop'}><li>Товары</li></NavLink>
-                        <NavLink className={({isActive, isPending}) => isActive ? s.active : isPending ? s.loading: s.btnNav} to={'Feedbacks'}><li>Отзывы</li></NavLink>
+                        <NavLink className={({isActive, isPending}) => isActive ? s.active : isPending ? s.loading: s.btnNav} to={'Reviews'}><li>Отзывы</li></NavLink>
                     </ul>
                 </div>
         </div>
