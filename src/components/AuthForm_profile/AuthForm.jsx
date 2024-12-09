@@ -70,7 +70,7 @@ export const AuthForm = ({ onSuccess }) => {
                             />
                             <input className={s.form_input}
                                 type="text"
-                                placeholder="Ник"
+                                placeholder="Имя на сайте"
                                 value={nick}
                                 onChange={(e) => setNick(e.target.value)}
                                 required
