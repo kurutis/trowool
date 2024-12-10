@@ -2,6 +2,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Root } from "./routes/Root/Root";
 import { About, loader as aboutloader} from './routes/About/About'
 import { Reviews, loader as reviewsloader } from "./routes/Reviews/Reviews";
+import { Market, loader as marketloader } from "./routes/Market/Market";
+import { ProductDetail, loader as productloader } from "./routes/ProductDetail/ProductDetail";
 
 
 let router = createBrowserRouter([
@@ -18,6 +20,16 @@ let router = createBrowserRouter([
         path: 'Reviews',
         element: <Reviews />,
         loader: reviewsloader
+      },
+      {
+        path: 'Market',
+        element: <Market />,
+        loader: marketloader,
+      },
+      {
+        path: 'product/:id',
+        element: <ProductDetail />,
+        loader: productloader
       }
     ]
   },

@@ -13,7 +13,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-a, p, h1, h2, h3, span, input{
+a, p, h1, h2, h3, span, input, button{
   margin: 0;
   font-weight: 400;
 }

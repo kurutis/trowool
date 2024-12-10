@@ -13,8 +13,8 @@ import whatsapp from '../../assets/whatsapp.svg'
 import {Modal} from '../../components/Modal_profile/Modal'
 import  {User} from '../../components/User_profile/User'
 import  {AuthForm}  from '../../components/AuthForm_profile/AuthForm'
-
-
+import { CartModal } from '../../components/CartModal/CartModal'
+import { useSelector } from 'react-redux'
 
 
 export const Root = () =>{
@@ -36,6 +36,9 @@ export const Root = () =>{
         setIsModalOpen(false);
     };
 
+    const [isCartOpen, setIsCartOpen] = useState(false);
+    const cartItems = useSelector(state => state.cart.items);
+
 
     return(
         <>
@@ -53,8 +56,10 @@ export const Root = () =>{
                             <li>
                                 <ul className={s.icons}>
                                     <li>
-                                        <Link><img src={basket} height={45.26} alt="" /> <p>Корзина</p></Link>
+                                        <span>({cartItems.length})</span>
+                                        <Link onClick={() => setIsCartOpen(true)}><img src={basket} height={45.26} alt="" /> <p>Корзина</p></Link>
                                     </li>
+                                    <CartModal isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
                                     <li>
                                         <Link onClick={() => setIsModalOpen(true)}><img src={profile} alt="" /> <p>Личный кабинет</p></Link>
                                         <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
@@ -73,13 +78,13 @@ export const Root = () =>{
         </header>
         <div>
                 <div className={s.video_container}>
-                    <video loop="loop" src={Video} autoPlay="true" className={s.video} />
+                    <video muted="muted" loop="loop" src={Video} autoPlay="true" className={s.video} />
                     <button onClick={scroll} className={s.btn}> Вниз <img src={down} alt="" /></button>
                 </div>
                 <div className={s.container}>
                     <ul ref={targetRef} className={s.navigation}>
                         <NavLink className={({isActive, isPending}) => isActive ? s.active : isPending ? s.loading: s.btnNav} to={'About'}><li>О магазине</li></NavLink>
-                        <NavLink className={({isActive, isPending}) => isActive ? s.active : isPending ? s.loading: s.btnNav} to={'Shop'}><li>Товары</li></NavLink>
+                        <NavLink className={({isActive, isPending}) => isActive ? s.active : isPending ? s.loading: s.btnNav} to={'Market'}><li>Товары</li></NavLink>
                         <NavLink className={({isActive, isPending}) => isActive ? s.active : isPending ? s.loading: s.btnNav} to={'Reviews'}><li>Отзывы</li></NavLink>
                     </ul>
                 </div>
