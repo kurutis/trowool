@@ -17,7 +17,7 @@
     padding: 20px; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
     max-width: 400px;
-    width: 90%; 
+    width: 100%;
 }
 
 .cartItem {
@@ -43,7 +43,7 @@
     padding: 10px 15px;
     cursor: pointer;
     transition: border 1s ;
-    background-color: #BC354F
+    background-color: #BC354F;
 }
 
 .close_button:hover {
@@ -57,4 +57,16 @@
     border-radius: 5px;
     color: #BC354F;
     cursor: pointer;
+}
+
+.modalContent h4{
+    margin-top: 30px;
+}
+
+.btns{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
 }

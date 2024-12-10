@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import s from './ProductDetail.module.css';
 import back from '../../assets/back.svg';
 import { addToCart, removeFromCart } from '../../redusers/cartSlice'; 
 import basket from '../../assets/basketIcon.svg';
+import { QuantityModal } from '../../components/QwalentyModal/QwalentyModal';
 
 export  let loader = async () => {
     let arr = JSON.parse(localStorage.getItem('/product/:id'))
@@ -18,11 +19,13 @@ export const ProductDetail = () => {
     const { id } = useParams();
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const [isModalOpen, setIsModalOpen] = useState(false);
     const products = useSelector(state => state.products.products);
     const product = products.find(product => product.id === parseInt(id));
 
-    const handleAddToCart = () => {
-        dispatch(addToCart(product));
+    const handleAddToCart = (quantity) => {
+        const itemWithQuantity = { ...product, quantity };
+        dispatch(addToCart(itemWithQuantity)); 
     };
 
     if (!product) {
@@ -61,10 +64,16 @@ export const ProductDetail = () => {
                 </div>
                 <div className={s.info_line}>
                     <p>{product.price} руб/шт</p>
-                    <button className={s.basket_button} onClick={handleAddToCart}>
-                        В корзину
-                        <img src={basket} alt="" />
-                    </button>
+                    <button className={s.basket_button} onClick={() => setIsModalOpen(true)}>
+                В корзину
+                <img src={basket} alt="Корзина" />
+            </button>
+            <QuantityModal 
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+                onAddToCart={handleAddToCart}
+                product={product}
+            />
                 </div>
             </div>
         </div>

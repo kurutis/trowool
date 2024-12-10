@@ -16,12 +16,13 @@
 
 .modal_content {
     font-family: "Montserrat Alternates", sans-serif;
-    background: white;
+    background: #f9f9f9;
     padding: 20px;
     border-radius: 5px;
     width: 40vw;
     position: relative;
 }
+
 
 .close_button {
     font-family: "Montserrat Alternates", sans-serif;
@@ -39,3 +40,5 @@
     width: 40px;
     height: 40px;
 }
+
+
