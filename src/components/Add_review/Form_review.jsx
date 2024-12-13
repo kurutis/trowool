@@ -6,6 +6,7 @@ import { AuthForm } from '../AuthForm_profile/AuthForm';
 import s from './Form_review.module.css';
 import go from '../../assets/go.svg';
 import { AutoResizeTextarea } from '../AutoResazeTextarea/AutoresizeTextarea';
+import paperClip from '../../assets/paperclip.svg';
 
 export const ReviewForm = () => {
     const [text, setText] = useState('');
@@ -33,9 +34,7 @@ export const ReviewForm = () => {
             return;
         }
 
-        // Отправляем отзыв
         dispatch(addReview({ name: userName, text, rating, images }));
-        // Сброс значений формы
         setText(''); 
         setRating(1); 
         setImages([]); 
@@ -61,7 +60,16 @@ export const ReviewForm = () => {
                             </option>
                         ))}
                     </select>
-                    <input type="file" multiple onChange={handleImageChange} />
+                    <label htmlFor="file-upload" className={s.custom_file_upload}>
+                        <img className={s.label_img} src={paperClip} alt="Прикрепить файл" />
+                    </label>
+                    <input 
+                        id="file-upload" 
+                        type="file" 
+                        multiple 
+                        onChange={handleImageChange} 
+                        style={{ display: 'none' }}
+                    />
                     <button type="submit"><img src={go} alt="Отправить" /></button>
                 </div>
             </form>

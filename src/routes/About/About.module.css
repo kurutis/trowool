@@ -17,6 +17,10 @@
     padding-bottom: 15px;
 }
 
+.history img{
+    width: 50%;
+}
+
 .about h1, h2{
     font-size: 32px;
     color: #BF4960;
@@ -38,10 +42,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 65px;
-    height: 120px;
+    width: 6vw;
+    height: 14vh;
     background-color: #f9f9f9;
-    padding-top: 10px;
+    padding-top: 5px;
     margin-left: 5px;
 }
 
@@ -67,4 +71,39 @@
 .links p a{
     color: #404040;
     font-size: 18px;
+}
+
+@media screen and (max-width: 1200px) {
+    .history{
+        display: block;
+    }
+
+    .text{
+        width: 100%;
+    }
+
+    .text p{
+        font-size: 18px;
+    }
+
+    .history img{
+        width: 100%;
+    }
+
+    .links h3{
+        font-size: 20px;
+    }
+    .links p{
+        font-size: 18px;
+    }
+
+    .magnifier img{
+        width: 4vw;
+    }
+}
+
+@media screen and (max-width: 799px){
+    .magnifier{
+        height: 10vh;
+    }
 }

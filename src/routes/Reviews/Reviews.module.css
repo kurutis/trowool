@@ -1,18 +1,19 @@
 .container{
-    width: 80vw;
+    max-width: 80vw;
     margin-left: 10vw;
 }
 
 .review{
     width: 100%;
     margin: 20px 0;
-    padding: 30px;
+    padding: 15px;
     border: 1px solid #BC354F;
     border-radius: 10px;
 }
 
 .reviews{
     padding: 0;
+    width: 100%;
 }
 
 .review h3{
@@ -32,4 +33,19 @@
     color: #404040;
     font-size: 22px;
     margin-bottom: 20px;
+}
+
+@media screen and (max-width: 1200px){
+    .review h3{
+        font-size: 18px;
+    }
+
+    .review p{
+        font-size: 16px;
+    }
+
+    .inline p {
+        font-size: 16px;
+    }
+    
 }

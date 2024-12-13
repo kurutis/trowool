@@ -70,3 +70,9 @@
     flex-direction: column;
     gap: 5px;
 }
+
+.color{
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+}

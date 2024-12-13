@@ -55,8 +55,8 @@ export const Root = () =>{
                             </li>
                             <li>
                                 <ul className={s.icons}>
-                                    <li>
-                                        <span>({cartItems.length})</span>
+                                    <li className={s.li_cart}>
+                                        <span className={s.cart_num}>({cartItems.length})</span>
                                         <Link onClick={() => setIsCartOpen(true)}><img src={basket} height={45.26} alt="" /> <p>Корзина</p></Link>
                                     </li>
                                     <CartModal isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />

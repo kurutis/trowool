@@ -22,9 +22,10 @@ export const ProductDetail = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const products = useSelector(state => state.products.products);
     const product = products.find(product => product.id === parseInt(id));
+    const [selectedColorIndex, setSelectedColorIndex] = useState(0);
 
-    const handleAddToCart = (quantity) => {
-        const itemWithQuantity = { ...product, quantity };
+    const handleAddToCart = (quantity, selectedColor) => {
+        const itemWithQuantity = { ...product, quantity, selectedColor };
         dispatch(addToCart(itemWithQuantity)); 
     };
 
@@ -44,7 +45,7 @@ export const ProductDetail = () => {
             </button>
             <h1 className={s.product_name}>{product.name}</h1>
             <div className={s.product}>
-                <img src={product.images[0]} alt={product.name} />
+                <img src={product.images[selectedColorIndex + 1]} alt={product.name} />
                 <div className={s.product_info}>
                     <h2>Характеристики:</h2>
                     <p>Бренд: {product.brand}</p>
@@ -59,20 +60,32 @@ export const ProductDetail = () => {
                 </div>
             </div>
             <div className={s.actions}>
-                <div className={s.colors}>
+                <div className={s.colors_container}>
                     <h2>Выбрать цвет</h2>
+                    <ul className={s.colors}>
+                        {product.colors.map((color, index) => (
+                            <li key={index}>
+                                <button 
+                                    className={`${s.color_btn} ${selectedColorIndex === index ? s.active : ''}`} 
+                                    style={{ backgroundColor: color }} 
+                                    onClick={() => setSelectedColorIndex(index)}
+                                />
+                            </li>
+                        ))}
+                    </ul>
                 </div>
                 <div className={s.info_line}>
                     <p>{product.price} руб/шт</p>
                     <button className={s.basket_button} onClick={() => setIsModalOpen(true)}>
-                В корзину
-                <img src={basket} alt="Корзина" />
-            </button>
+                        В корзину
+                        <img src={basket} alt="Корзина" />
+                    </button>
             <QuantityModal 
                 isOpen={isModalOpen}
                 onClose={() => setIsModalOpen(false)}
                 onAddToCart={handleAddToCart}
                 product={product}
+                selectedColorIndex={selectedColorIndex}
             />
                 </div>
             </div>

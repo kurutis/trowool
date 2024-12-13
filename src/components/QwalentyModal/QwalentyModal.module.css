@@ -95,3 +95,29 @@
     width: 30px;
 }
 
+.color_btn{
+    border: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+}
+
+.colors{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.active{
+    border: 2px solid #ffffff;
+    box-shadow: 0px 0px 7px 4px rgba(0, 0, 0, 0.26);
+}
+
+@media screen and (max-width: 1200px){
+    .modal_content{
+        width: 90%;
+        
+    }
+}

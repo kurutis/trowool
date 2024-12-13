@@ -33,14 +33,17 @@ export const CartModal = ({ isOpen, onClose }) => {
                         (
                             <div key={item.id} className={s.cartItem}>
                                 <h3>{item.name}</h3>
+                                <div className={s.color} style={{backgroundColor: item.selectedColor}}></div>
                                 <p>Кол-во: {item.quantity}</p>
                                 <p>Цена: {item.price * item.quantity} руб.</p>
                                 <button className={s.delete_btn} onClick={() => handleRemove(item)}>Удалить</button>
                             </div>
-                        
+                            
                         ))
+                            
                         }
                         <h4>Итого: {totalAmount} руб.</h4>
+                        
                     </>
                 )}
                 <div className={s.btns}>
